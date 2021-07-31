@@ -4,8 +4,10 @@ from django.db.models import Avg
 from django_filters.rest_framework import DjangoFilterBackend
 
 from titles.models import Category, Genre, Title
-from titles.api.serializers import CategorySerializer, GenreSerializer, \
-    TitleSlugSerializer, TitleResponseSerializer
+from titles.api.serializers import (CategorySerializer,
+                                    GenreSerializer,
+                                    TitleSlugSerializer,
+                                    TitleResponseSerializer)
 from titles.api.filters import TitleFilter
 from titles.api.permissions import IsAdminOrReadOnly
 
@@ -43,8 +45,8 @@ class TitleViewSet(viewsets.ModelViewSet):
     filterset_class = TitleFilter
 
     def get_queryset(self):
-        return Title.objects.annotate(rating=Avg('reviews__score')).\
-            order_by('name')
+        return Title.objects.annotate(rating=Avg(
+            'reviews__score')).order_by('name')
 
     def get_serializer_class(self):
         if self.action in ('create', 'partial_update'):

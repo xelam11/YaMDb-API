@@ -1,3 +1,7 @@
+#
+![YaMDB workflow](https://github.com/xelam11/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
+
+
 # YaMDB
 ### Описание
 Проект YAMDb собирает отзывы пользователей на произведения.
